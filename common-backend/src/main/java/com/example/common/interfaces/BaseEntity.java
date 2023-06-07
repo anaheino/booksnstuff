@@ -1,6 +1,6 @@
 package com.example.common.interfaces;
 
-public interface Entity<ID> {
+public interface BaseEntity<ID> {
     ID getId();
     void setId(ID id);
     void setRandomId();

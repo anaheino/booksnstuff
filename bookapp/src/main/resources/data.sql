@@ -1,0 +1,1 @@
+insert into book values('sofsadjd', 'Example book', 1992);

@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  booksnstuff-db:
+    container_name: postgres
+    image: postgres:latest
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=booksnstuff-db
+    ports:
+      - '5432:5432'
+    volumes:
+      - booksnstuff-db:/var/lib/postgresql/data
+volumes:
+  booksnstuff-db:
+    driver: local

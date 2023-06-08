@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class AbstractBaseService<T, ID> {
-    private final JpaRepository<T, ID> repository;
+public abstract class BaseService<T, ID> {
+    public final JpaRepository<T, ID> repository;
 
-    public AbstractBaseService(JpaRepository<T, ID> repository) {
+    public BaseService(JpaRepository<T, ID> repository) {
         this.repository = repository;
     }
 
@@ -22,10 +22,6 @@ public abstract class AbstractBaseService<T, ID> {
 
     public void deleteById(ID id) {
         repository.deleteById(id);
-    }
-
-    public void delete(T entity) {
-        repository.delete(entity);
     }
 
     public T update(ID entityId, T entity) {

@@ -1,8 +1,9 @@
-package com.example.userapp.config;
+package com.example.bookapp.config;
 
 import com.example.common.config.CommonSecurityConfiguration;
 import com.example.common.security.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -13,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.example.common.web.BaseAppUrlSchema.HOME;
 import static com.example.common.web.BaseAppUrlSchema.LOGIN;
 import static com.example.common.web.BaseAppUrlSchema.LOGIN_FORM;
 import static com.example.common.web.BaseAppUrlSchema.LOGOUT;
@@ -24,6 +24,9 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfiguration extends CommonSecurityConfiguration {
+
+    @Value("${userapp.url}")
+    private String loginUrl;
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
@@ -42,7 +45,7 @@ public class SecurityConfiguration extends CommonSecurityConfiguration {
                                 .anyRequest()
                                 .authenticated())
                 .formLogin(form -> form
-                        .loginPage(LOGIN_FORM)
+                        .loginPage(loginUrl + LOGIN_FORM)
                         .permitAll())
                 .logout(logout -> logout
                         .logoutUrl(LOGOUT)

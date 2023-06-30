@@ -24,11 +24,8 @@ public abstract class BaseService<T, ID> {
         repository.deleteById(id);
     }
 
+    // Entity id is here in case we want to code a difference check between old and updated entity
     public T update(ID entityId, T entity) {
-        Optional<T> previousEntity = repository.findById(entityId);
-        if (previousEntity.isPresent() && previousEntity.get().equals(entity)) {
-            return entity;
-        }
         return repository.save(entity);
     }
 }

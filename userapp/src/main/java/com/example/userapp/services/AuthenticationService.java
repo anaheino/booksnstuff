@@ -1,11 +1,12 @@
 package com.example.userapp.services;
 
-import com.example.userapp.models.Role;
-import com.example.userapp.models.User;
-import com.example.userapp.models.request.LoginRequest;
-import com.example.userapp.models.request.RegistrationRequest;
-import com.example.userapp.models.response.JwtResponse;
-import com.example.userapp.repositories.UserRepository;
+import com.example.common.models.user.Role;
+import com.example.common.models.user.User;
+import com.example.common.models.request.LoginRequest;
+import com.example.common.models.request.RegistrationRequest;
+import com.example.common.models.response.JwtResponse;
+import com.example.common.repositories.UserRepository;
+import com.example.common.services.JwtService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

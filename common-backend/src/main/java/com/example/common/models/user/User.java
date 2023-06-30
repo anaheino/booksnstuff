@@ -1,4 +1,4 @@
-package com.example.userapp.models;
+package com.example.common.models.user;
 
 import com.example.common.models.BaseEntity;
 import jakarta.persistence.Entity;

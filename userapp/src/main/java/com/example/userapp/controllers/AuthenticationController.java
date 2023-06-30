@@ -1,9 +1,9 @@
 package com.example.userapp.controllers;
 
-import com.example.userapp.models.request.LoginRequest;
-import com.example.userapp.models.request.RegistrationRequest;
-import com.example.userapp.models.response.JwtResponse;
+import com.example.common.models.request.LoginRequest;
+import com.example.common.models.request.RegistrationRequest;
 import com.example.userapp.services.AuthenticationService;
+import com.example.common.models.response.JwtResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;

@@ -1,4 +1,4 @@
-package com.example.userapp.models.request;
+package com.example.common.models.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class LoginRequest {
-    private String email;
-    private String password;
+public class JwtResponse {
+    private String token;
 }

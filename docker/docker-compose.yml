@@ -12,6 +12,30 @@ services:
       - '5432:5432'
     volumes:
       - booksnstuff-db:/var/lib/postgresql/data
+  bookapp:
+    build: '../bookapp'
+    image: 'bookapp-docker.jar'
+    ports:
+      - "8080:8080"
+    depends_on:
+      - booksnstuff-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://booksnstuff-db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  userapp:
+    build: '../userapp'
+    image: 'userapp-docker.jar'
+    ports:
+      - "8081:8081"
+    depends_on:
+      - booksnstuff-db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://booksnstuff-db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 volumes:
   booksnstuff-db:
     driver: local

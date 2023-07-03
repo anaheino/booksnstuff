@@ -2,9 +2,9 @@ package com.example.userapp.services;
 
 import com.example.common.models.user.Role;
 import com.example.common.models.user.User;
-import com.example.common.models.request.LoginRequest;
-import com.example.common.models.request.RegistrationRequest;
-import com.example.common.models.response.JwtResponse;
+import com.example.userapp.models.request.LoginRequest;
+import com.example.userapp.models.request.RegistrationRequest;
+import com.example.userapp.models.response.JwtResponse;
 import com.example.common.repositories.UserRepository;
 import com.example.common.services.JwtService;
 import lombok.RequiredArgsConstructor;

@@ -54,8 +54,12 @@ public class ViewController {
         // In real life this shit should not exist.
         // instead we'd validate the object on userController side,
         // and add JWT_TOKEN regeneration to recreate the token with updated user data.
-        // note that you have to log out for the user update to work, because this is a stupid poc.
-        userController.updateUser(id, user);
+        // note that you have to log out for the user update to reflect in the JWT token, because this is a stupid poc.
+        User previousUser = userController.getUser(id);
+        previousUser.setFirstName(user.getFirstName());
+        previousUser.setLastName(user.getLastName());
+        previousUser.setEmail(user.getEmail());
+        userController.updateUserThymeleaf(id, previousUser);
         return ResponseEntity.status(HttpStatus.FOUND)
                 .location(new URI("http://localhost:8081/v1/api/logout"))
                 .build();

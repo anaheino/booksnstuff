@@ -38,7 +38,8 @@ public class ViewController {
     @PreAuthorize("hasAuthority('USER')")
     @PostMapping(BOOK_STUPID)
     public ResponseEntity<String> createBook(@ModelAttribute("newBook") Book book) throws URISyntaxException {
-        bookController.create(book);
+        book.setRandomId();
+        bookController.createThymeleaf(book.getId(), book);
         return ResponseEntity.status(HttpStatus.FOUND)
                 .location(new URI("http://localhost:8080/v1/api/book-page"))
                 .build();
@@ -47,7 +48,7 @@ public class ViewController {
     @PreAuthorize("hasAuthority('USER')")
     @PutMapping(BOOK_STUPID_ID)
     public ResponseEntity<String> updateBook(@PathVariable String id, @ModelAttribute("formData") Book book) throws URISyntaxException {
-        bookController.updateBook(id, book);
+        bookController.updateBookThymeleaf(id, book);
         return ResponseEntity.status(HttpStatus.FOUND)
                 .location(new URI("http://localhost:8080/v1/api/book-page"))
                 .build();

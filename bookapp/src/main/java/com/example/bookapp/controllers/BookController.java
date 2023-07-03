@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -36,16 +37,14 @@ public class BookController {
 
     @PreAuthorize("hasAuthority('USER')")
     @PutMapping(value = BOOK)
-    public Book updateBook(@PathVariable String id, Book book) {
-        Book previousBook = bookService.findById(id).orElse(null);
-        // Again, this is not at all how this would happen in actual production, but in POC, who cares.
-        if (previousBook != null) {
-            previousBook.setAuthor(book.getAuthor());
-            previousBook.setTitle(book.getTitle());
-            previousBook.setPrice(book.getPrice());
-            previousBook.setYear(book.getYear());
-            return bookService.update(id, previousBook);
-        }
+    public Book updateBook(@PathVariable String id, @RequestBody Book book) {
+        return bookService.update(id, book);
+    }
+
+    @PreAuthorize("hasAuthority('USER')")
+    // Using @RequestBody with thymeleaf is a major hassle, thus we have alternative solutions
+    // in real life this or other thymeleaf functions would not exist.
+    public Book updateBookThymeleaf(@PathVariable String id, Book book) {
         return bookService.update(id, book);
     }
 
@@ -57,8 +56,16 @@ public class BookController {
 
     @PreAuthorize("hasAuthority('USER')")
     @PostMapping(value = BOOK)
-    public void create(Book book) {
-        book.setRandomId();
-        bookService.update(book.getId(), book);
+    public Book create(@PathVariable String id, @RequestBody Book book) {
+        return bookService.update(id, book);
+    }
+
+    @PreAuthorize("hasAuthority('USER')")
+    public void createThymeleaf(@PathVariable String id, Book book) {
+        if (id == null && book.getId() == null) {
+            book.setRandomId();
+        }
+        book.setId(id);
+        bookService.update(id, book);
     }
 }

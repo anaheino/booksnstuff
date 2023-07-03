@@ -35,10 +35,9 @@ public class UserController {
     public List<User> getUsers() {
         User currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         boolean isAdmin = currentUser.getRole().equals(Role.ADMIN);
-        var blaa = userService.list().stream()
+        return userService.list().stream()
                 .filter(user -> isAdmin || user.getId().equals(currentUser.getId()))
                 .collect(Collectors.toList());
-        return blaa;
     }
 
     @PreAuthorize("hasAuthority('ADMIN') or @userService.hasId(#id)")
@@ -49,18 +48,15 @@ public class UserController {
 
     @PreAuthorize("hasAuthority('ADMIN') or @userService.hasId(#id)")
     @PutMapping(value = USER)
-    public User updateUser(@PathVariable String id, User user) {
-        User currentUser = userService.findById(id).orElse(null);
-        // Note that this is stupid and would never happen in a real life application.
-        // caused by the stupidity which is thymeleaf instead of a decent front-end framework / library
-        // also lacking actual validation classes that could be used in every single crud operation.
-        if (currentUser != null) {
-            currentUser.setEmail(user.getEmail());
-            currentUser.setFirstName(null);
-            currentUser.setLastName(user.getLastName());
-            return userService.update(id, currentUser);
-        }
+    public User updateUser(@PathVariable String id, @RequestBody User user) {
         return userService.update(id, user);
+    }
+
+    // Same as with books, this only exists because of thymeleaf PoC restrictions.
+    // Would not need this, but @RequestBody is a hassle with thymeleaf.
+    @PreAuthorize("hasAuthority('ADMIN') or @userService.hasId(#id)")
+    public void updateUserThymeleaf(String id, User user) {
+        userService.update(id, user);
     }
 
     @PreAuthorize("hasAuthority('ADMIN') or @userService.hasId(#id)")

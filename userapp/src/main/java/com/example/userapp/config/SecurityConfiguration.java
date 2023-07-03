@@ -13,7 +13,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.example.common.web.BaseAppUrlSchema.HOME;
 import static com.example.common.web.BaseAppUrlSchema.LOGIN;
 import static com.example.common.web.BaseAppUrlSchema.LOGIN_FORM;
 import static com.example.common.web.BaseAppUrlSchema.LOGOUT;
@@ -43,6 +42,7 @@ public class SecurityConfiguration extends CommonSecurityConfiguration {
                                 .authenticated())
                 .formLogin(form -> form
                         .loginPage(LOGIN_FORM)
+                        .failureForwardUrl(LOGOUT)
                         .permitAll())
                 .logout(logout -> logout
                         .logoutUrl(LOGOUT)

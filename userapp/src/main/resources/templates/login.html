@@ -13,12 +13,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/index}">Spring Security Custom Login Example</a>
-        <form method="GET" th:action="@{/v1/api/logout}">
-        <button class="navbar-toggler" type="submit">
-            <span>Logout</span>
-        </button>
-        </form>
+        <a class="navbar-brand" th:href="@{/v1/api/home}">Home</a>
+        <a class="navbar-brand" style="float:right" th:href="@{/v1/api/logout}">Logout</a>
     </div>
 </nav>
 <br /><br />

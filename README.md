@@ -19,7 +19,7 @@ The project is split into three services: common-backend, bookapp and userapp.
 ## Running the project:
 
 1. Go to docker folder
-2. run 'docker-compose up'
+2. run 'docker-compose up' (if not working, try running mvn clean install -DskipTests in root folder first)
 3. Navigate to localhost:8080 or localhost:8081 in browser
 
 ## Some notes on the implementation:

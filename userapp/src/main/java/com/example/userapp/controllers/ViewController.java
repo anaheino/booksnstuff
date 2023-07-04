@@ -51,7 +51,7 @@ public class ViewController {
     @PreAuthorize("hasAuthority('USER')")
     @PutMapping(USER_STUPID_MAPPING)
     public ResponseEntity<String> userPageStupidPut(@PathVariable String id, @ModelAttribute("formData") User user) throws URISyntaxException {
-        // In real life this shit should not exist.
+        // In real life this stuff should not exist.
         // instead we'd validate the object on userController side,
         // and add JWT_TOKEN regeneration to recreate the token with updated user data.
         // note that you have to log out for the user update to reflect in the JWT token, because this is a stupid poc.
@@ -61,17 +61,17 @@ public class ViewController {
         previousUser.setEmail(user.getEmail());
         userController.updateUserThymeleaf(id, previousUser);
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(new URI("http://localhost:8081/v1/api/logout"))
+                .location(new URI("http://localhost:8081/api/v1/logout"))
                 .build();
     }
 
     @PreAuthorize("hasAuthority('USER')")
     @DeleteMapping(USER_STUPID_MAPPING)
     public ResponseEntity<String> userPageStupidDelete(@PathVariable String id, @ModelAttribute("formData") User user) throws URISyntaxException {
-        // In real life this shit should not exist either.
+        // In real life this stuff should not exist either.
         userController.delete(id);
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(new URI("http://localhost:8081/v1/api/logout"))
+                .location(new URI("http://localhost:8081/api/v1/logout"))
                 .build();
     }
 }

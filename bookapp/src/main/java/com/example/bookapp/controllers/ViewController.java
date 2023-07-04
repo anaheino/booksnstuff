@@ -34,14 +34,13 @@ public class ViewController {
         return "books";
     }
 
-
     @PreAuthorize("hasAuthority('USER')")
     @PostMapping(BOOK_STUPID)
     public ResponseEntity<String> createBook(@ModelAttribute("newBook") Book book) throws URISyntaxException {
         book.setRandomId();
         bookController.createThymeleaf(book.getId(), book);
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(new URI("http://localhost:8080/v1/api/book-page"))
+                .location(new URI("http://localhost:8080/api/v1/book-page"))
                 .build();
     }
 
@@ -50,7 +49,7 @@ public class ViewController {
     public ResponseEntity<String> updateBook(@PathVariable String id, @ModelAttribute("formData") Book book) throws URISyntaxException {
         bookController.updateBookThymeleaf(id, book);
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(new URI("http://localhost:8080/v1/api/book-page"))
+                .location(new URI("http://localhost:8080/api/v1/book-page"))
                 .build();
     }
 
@@ -59,7 +58,7 @@ public class ViewController {
     public ResponseEntity<String> deleteBook(@PathVariable String id) throws URISyntaxException {
         bookController.delete(id);
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(new URI("http://localhost:8080/v1/api/book-page"))
+                .location(new URI("http://localhost:8080/api/v1/book-page"))
                 .build();
     }
 }

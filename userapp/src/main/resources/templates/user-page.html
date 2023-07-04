@@ -11,8 +11,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/v1/api/home}">Home</a>
-        <a class="navbar-brand" style="float:right" th:href="@{/v1/api/logout}">Logout</a>
+        <a class="navbar-brand" th:href="@{/api/v1/home}">Home</a>
+        <a class="navbar-brand" style="float:right" th:href="@{/api/v1/logout}">Logout</a>
     </div>
 </nav>
 <h1>Logged in as:</h1>
@@ -50,7 +50,7 @@
                         th:method="put"
                         role="form"
                         th:object="${formData}"
-                        th:action="@{/v1/api/user-page/stupid/} + ${user.id}"
+                        th:action="@{/api/v1/user-page/stupid/} + ${user.id}"
                         class="form-horizontal"
                 >
                     <div class="form-group mb-3">
@@ -103,7 +103,7 @@
                 <form
                         th:method="delete"
                         role="form"
-                        th:action="@{/v1/api/user-page/stupid/} + ${user.id}"
+                        th:action="@{/api/v1/user-page/stupid/} + ${user.id}"
                         class="form-horizontal"
                 >
                     <div class="form-group mb-3">

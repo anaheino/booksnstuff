@@ -61,7 +61,7 @@ public class ViewController {
         previousUser.setEmail(user.getEmail());
         userController.updateUserThymeleaf(id, previousUser);
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(new URI("http://localhost:8081/v1/api/logout"))
+                .location(new URI("http://localhost:8081/api/v1/logout"))
                 .build();
     }
 
@@ -71,7 +71,7 @@ public class ViewController {
         // In real life this shit should not exist either.
         userController.delete(id);
         return ResponseEntity.status(HttpStatus.FOUND)
-                .location(new URI("http://localhost:8081/v1/api/logout"))
+                .location(new URI("http://localhost:8081/api/v1/logout"))
                 .build();
     }
 }

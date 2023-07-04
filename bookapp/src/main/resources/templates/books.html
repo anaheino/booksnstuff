@@ -11,8 +11,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{http://localhost:8081/v1/api/home}">Home</a>
-        <a class="navbar-brand" style="float:right" th:href="@{/v1/api/logout}">Logout</a>
+        <a class="navbar-brand" th:href="@{http://localhost:8081/api/v1/home}">Home</a>
+        <a class="navbar-brand" style="float:right" th:href="@{/api/v1/logout}">Logout</a>
     </div>
 </nav>
 
@@ -28,7 +28,7 @@
                         action="#"
                         th:method="post"
                         th:object="${newBook}"
-                        th:action="@{/v1/api/book-page/stupid}"
+                        th:action="@{/api/v1/book-page/stupid}"
                         class="form-horizontal"
                 >
                     <div class="form-group mb-3">
@@ -93,7 +93,7 @@
                         th:method="put"
                         role="form"
                         th:object="${formData}"
-                        th:action="@{/v1/api/book-page/stupid/} + ${book.id}"
+                        th:action="@{/api/v1/book-page/stupid/} + ${book.id}"
                         class="form-horizontal"
                 >
                     <div class="form-group mb-3">
@@ -156,7 +156,7 @@
                 <form
                         th:method="delete"
                         role="form"
-                        th:action="@{/v1/api/book-page/stupid/} + ${book.id}"
+                        th:action="@{/api/v1/book-page/stupid/} + ${book.id}"
                         class="form-horizontal"
                 >
                     <div class="form-group mb-3">

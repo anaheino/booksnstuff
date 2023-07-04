@@ -13,8 +13,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" th:href="@{/v1/api/home}">Home</a>
-        <a class="navbar-brand" style="float:right" th:href="@{/v1/api/logout}">Logout</a>
+        <a class="navbar-brand" th:href="@{/api/v1/home}">Home</a>
+        <a class="navbar-brand" style="float:right" th:href="@{/api/v1/logout}">Logout</a>
     </div>
 </nav>
 <br /><br />
@@ -37,7 +37,7 @@
                     <form
                             method="post"
                             role="form"
-                            th:action="@{/v1/api/login}"
+                            th:action="@{/api/v1/login}"
                             class="form-horizontal"
                     >
                         <div class="form-group mb-3">
@@ -80,7 +80,7 @@
                     <form
                             method="post"
                             role="form"
-                            th:action="@{/v1/api/register}"
+                            th:action="@{/api/v1/register}"
                             class="form-horizontal"
                     >
                         <div class="form-group mb-3">

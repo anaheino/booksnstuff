@@ -1,6 +1,6 @@
 # Example Java Application
 
-This is an example Spring Boot 3.1 application, that features some of the most important tricks and patterns used to develop easily maintainable, extendable and scaling Spring Boot -applications.
+This is an example Spring Boot 3.1 application with Java 17, that features some of the most important tricks and patterns used to develop easily maintainable, extendable and scaling Spring Boot -applications.
 
 Some of the stuff in this application is a bit stupid and hacky because this is a proof of concept project that is meant to demonstrate most important parts of enterprise java applications.
 
@@ -8,7 +8,7 @@ As a the most glaring example, this project does not have an actual front-end, j
 
 The project is split into three services: common-backend, bookapp and userapp.
 
-- common-backend houses abstract classes, and would house factories and other such necessary pieces of code that are used in multiple different modules.1
+- common-backend houses abstract classes, and would house factories and other such necessary pieces of code that are used in multiple different modules.
 - bookapp runs by default on port 8080, and houses logic related to books. Basic crud's and such.
 - userapp runs by default on port 8081, and houses logic related to user cruds.
 
@@ -25,7 +25,7 @@ The project is split into three services: common-backend, bookapp and userapp.
 ## Some notes on the implementation:
 Of the top of my head, this is of course lacking a lot of things, but here are some that came to mind:
 
-- Lacks JWT refreshing and handling it's expiration. If stuck, navigate to /v1/app/logout or clear JWT_TOKEN cookie.
+- Lacks JWT refreshing and handling it's expiration. If stuck, navigate to /api/v1/logout or clear JWT_TOKEN cookie.
 - In general JWT parsing is not done with Authorization header, but with JWT_TOKEN named cookie. In real life it would be in the authorization header, but this is a PoC with thymeleaf and no actual front-end.
 - The user authentication is pretty raw, and should be handled better in a real life application (caching / some other lightweight solution instead of dragging around the User-JPARepository to every project)
 - Lombok is used in the project as it's a one-man demonstration, but in real life this should not be used because of clean code principles.

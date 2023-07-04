@@ -29,7 +29,7 @@ public class AuthenticationController {
     public ResponseEntity<JwtResponse> register(RegistrationRequest request) throws URISyntaxException {
         return ResponseEntity.status(HttpStatus.FOUND)
                 .header(HttpHeaders.SET_COOKIE, getJWTCookieString(authenticationService.register(request).getToken()))
-                .location(new URI("http://localhost:8081/v1/api/home"))
+                .location(new URI("http://localhost:8081/api/v1/home"))
                 .build();
     }
 
@@ -37,7 +37,7 @@ public class AuthenticationController {
     public ResponseEntity<JwtResponse> login(LoginRequest loginRequest) throws URISyntaxException {
         return ResponseEntity.status(HttpStatus.FOUND)
                 .header(HttpHeaders.SET_COOKIE, getJWTCookieString(authenticationService.login(loginRequest).getToken()))
-                .location(new URI("http://localhost:8081/v1/api/home"))
+                .location(new URI("http://localhost:8081/api/v1/home"))
                 .build();
     }
 

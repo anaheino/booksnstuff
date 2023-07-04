@@ -28,7 +28,7 @@ Of the top of my head, this is of course lacking a lot of things, but here are s
 - In general JWT parsing is not done with Authorization header, but with JWT_TOKEN named cookie. In real life it would be in the authorization header, but this is a PoC with thymeleaf and no actual front-end.
 - The user authentication is pretty raw, and should be handled better in a real life application (caching / some other lightweight solution instead of dragging around the User-JPARepository to every project)
 - Lombok is used in the project as it's a one-man demonstration, but in real life this should not be used because of clean code principles.
-- Currently Hibernate is allowed to modify the database schema, in production this should be disallowed, making hibernate read-only and adding (as an example) flyway to perform the actual modification of the schema.
+- Currently Hibernate is allowed to modify the database schema, in production this should be disallowed, making hibernate read-only and adding (as an example) flyway to perform the actual modification of the schema. Also taking advantage of PostgreSQL's jsonb-field would be recommended.
 - Does not have a linter, which it definitely should have.
 - More things should be read from environment variables, there is some hard-coding of stupid strings around here.
 - Tests exist as an example only for Books, but should be implemented all around and extend base configurations to avoid repeating same configurations.

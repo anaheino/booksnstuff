@@ -18,7 +18,9 @@ The project is split into three services: common-backend, bookapp and userapp.
 
 ## Running the project:
 
-1. Run mvn clean install -DskipTests && cd docker && docker-compose up in the root directory.
+1. Run 
+#mvn clean install -DskipTests && cd docker && docker-compose up 
+in the root directory.
 2. Navigate to localhost:8080 or localhost:8081 in browser
 
 ## Some notes on the implementation:

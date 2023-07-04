@@ -24,7 +24,7 @@ The project is split into three services: common-backend, bookapp and userapp.
 ## Some notes on the implementation:
 Of the top of my head, this is of course lacking a lot of things, but here are some that came to mind:
 
-- Lacks JWT refreshing and handling it's expiration. If stuck, navigate to /api/v1/logout or clear JWT_TOKEN cookie.
+- Lacks JWT refreshing and handling it's expiration. If receiving error when relaunching the application, first try to navigate to /api/v1/logout or clear JWT_TOKEN cookie. I haven't implemented proper JWT-failure handling, and thus when application tries to parse non-existent user from valid cookie it will fail.
 - In general JWT parsing is not done with Authorization header, but with JWT_TOKEN named cookie. In real life it would be in the authorization header, but this is a PoC with thymeleaf and no actual front-end.
 - The user authentication is pretty raw, and should be handled better in a real life application (caching / some other lightweight solution instead of dragging around the User-JPARepository to every project)
 - Lombok is used in the project as it's a one-man demonstration, but in real life this should not be used because of clean code principles.

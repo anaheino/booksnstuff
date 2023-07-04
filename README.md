@@ -27,14 +27,14 @@ Of the top of my head, this is of course lacking a lot of things, but here are s
 - Lacks JWT refreshing and handling it's expiration. If receiving error when relaunching the application, first try to navigate to /api/v1/logout or clear JWT_TOKEN cookie. I haven't implemented proper JWT-failure handling, and thus when application tries to parse non-existent user from valid cookie it will fail.
 - In general JWT parsing is not done with Authorization header, but with JWT_TOKEN named cookie. In real life it would be in the authorization header, but this is a PoC with thymeleaf and no actual front-end.
 - The user authentication is pretty raw, and should be handled better in a real life application (caching / some other lightweight solution instead of dragging around the User-JPARepository to every project)
-- Currently only the user password is encrypted, but depending on requirements I could see a case for encrypting all other PII's as well, such as names, emails and other such things.
+- Currently only the user password is encrypted, but depending on requirements I could see a case for encrypting all other PII's as well, such as names, emails and other such things. Could also see an use case of encrypting this PII in the front-end, even before it's sent to the backend to avoid MITM-attacks.
 - Lombok is used in the project as it's a one-man demonstration, but in real life this should not be used because of clean code principles.
 - Currently Hibernate is allowed to modify the database schema, in production this should be disallowed, making hibernate read-only and adding (as an example) flyway to perform the actual modification of the schema. Also taking advantage of PostgreSQL's jsonb-field would be recommended.
 - Does not have a linter, which it definitely should have.
 - More things should be read from environment variables, there is some hard-coding of stupid strings around here.
 - Tests exist as an example only for Books, but should be implemented all around and extend base configurations to avoid repeating same configurations.
 - In case of worker-tasks, we could add additional Spring Cloud Stream -application (https://spring.io/projects/spring-cloud-stream) and as an example implement a RabbitMQ-message senders/receivers (https://spring.io/guides/gs/messaging-rabbitmq/) to send tasks to the worker
-- If adding this to cloud, upcoming JVM Checkpoint Restore + GraalVM (https://docs.spring.io/spring-framework/reference/6.1-SNAPSHOT/integration/checkpoint-restore.html) could do wonders when scaling to zero
+- If adding this to cloud, upcoming JVM Checkpoint Restore + GraalVM (https://docs.spring.io/spring-framework/reference/6.1-SNAPSHOT/integration/checkpoint-restore.html) could do wonders when scaling to zero.
 
 ## General notes about infrastructure
 

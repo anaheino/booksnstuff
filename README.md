@@ -54,4 +54,5 @@ Well, first of all, above listed things should be implemented. Then, it should b
 - Frontend would need webpack, minimization, jest etc. test frameworks and all the flashy lights
 - Build pipelines and deployment configurations using something like Jenkins, codeBuild, codeDeploy etc.
 - Setting up git-rules to prevent git push -f master
+- Everything should be configured with some IAC tool, such as terraform or cloudformation
 - And numerous other things, but this is just a simple example. If you want to see and hear more, it'll cost money.

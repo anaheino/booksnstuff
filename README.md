@@ -4,7 +4,7 @@ This is an example Spring Boot 3.1 application, that features some of the most i
 
 Some of the stuff in this application is a bit stupid and hacky because this is a proof of concept project that is meant to demonstrate most important parts of enterprise java applications.
 
-As a the most glaring example, this project does not have an actual front-end, just a simple PoC thymeleaf .html-files. In real life all thymeleaf-idiocy anmd viewControllers related to it would be removed and replaced with actual front-end library/framework, such as react/angular/vue.
+As a the most glaring example, this project does not have an actual front-end, just a simple PoC thymeleaf .html-files. In real life all thymeleaf-idiocy and viewControllers related to it would be removed and replaced with actual front-end library/framework, such as react/angular/vue.
 
 The project is split into three services: common-backend, bookapp and userapp.
 
@@ -54,3 +54,4 @@ Well, first of all, above listed things should be implemented. Then, it should b
 - Frontend would need webpack, minimization, jest etc. test frameworks and all the flashy lights
 - Build pipelines and deployment configurations using something like Jenkins, codeBuild, codeDeploy etc.
 - Setting up git-rules to prevent git push -f master
+- And numerous other things, but this is just a simple example. If you want to see and hear more, it'll cost money.

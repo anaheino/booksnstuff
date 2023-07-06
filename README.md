@@ -24,7 +24,7 @@ The project is split into three services: common-backend, bookapp and userapp.
 ## Some notes on the implementation:
 Of the top of my head, this is of course lacking a lot of things, but here are some that came to mind:
 
-- This app still lacks a lot of input and object validation, and doesn't take advantage of annotations such as @NotNull, @IsEmpty etc not to mention custom validators. In real life these would of course be added to the project.
+- This app still lacks a lot of input and object validation, and doesn't take advantage of annotations such as @NotNull, @IsEmpty etc not to mention custom validators. In real life these would of course be added to the project. This also means it's pretty easy to break the application, if you try. (As an example, try to register same user twice! You can't login after that with that user, because there are no unique restrictions on db-level or in the java-level.)
 - Lacks JWT refreshing and handling it's expiration. If receiving error when relaunching the application, first try to navigate to /api/v1/logout or clear JWT_TOKEN cookie. I haven't implemented proper JWT-failure handling, and thus when application tries to parse non-existent user from valid cookie it will fail.
 - In general JWT parsing is not done with Authorization header, but with JWT_TOKEN named cookie. In real life it would be in the authorization header, but this is a PoC with thymeleaf and no actual front-end.
 - The user authentication is pretty raw, and should be handled better in a real life application (caching / some other lightweight solution instead of dragging around the User-JPARepository to every project)

@@ -34,8 +34,8 @@ Of the top of my head, this is of course lacking a lot of things, but here are s
 - Does not have a linter, which it definitely should have.
 - More things should be read from environment variables, there is some hard-coding of stupid strings around here.
 - Tests exist as an example only for Books, but should be implemented all around and extend base configurations to avoid repeating same configurations. Also they should be using their own test database, to avoid causing issues with development data.
-- In case of worker-tasks, we could add additional Spring Cloud Stream -application (https://spring.io/projects/spring-cloud-stream) and as an example implement a RabbitMQ-message senders/receivers (https://spring.io/guides/gs/messaging-rabbitmq/) to send tasks to the worker
-- If adding this to cloud, upcoming JVM Checkpoint Restore (https://docs.spring.io/spring-framework/reference/6.1-SNAPSHOT/integration/checkpoint-restore.html) and GraalVM (https://www.graalvm.org/) could do wonders when scaling to zero and trying to keep the application even more lightweight.
+- In case of worker-tasks, we could add additional [Spring Cloud Stream -application](https://spring.io/projects/spring-cloud-stream) and as an example implement a [RabbitMQ-message senders/receivers](https://spring.io/guides/gs/messaging-rabbitmq/) to send tasks to the worker
+- If adding this to cloud, upcoming [Coordinated Restore at Checkpoint](https://github.com/CRaC/docs)) and [GraalVM](https://www.graalvm.org/) could do wonders when scaling to zero and trying to keep the application even more lightweight.
 
 ## General notes about infrastructure
 

@@ -19,7 +19,7 @@ The project is split into three services: common-backend, bookapp and userapp.
 ## Running the project:
 
 1. Run 'mvn clean install -DskipTests && cd docker && docker-compose up' in the root directory.
-2. Navigate to localhost:8080 or localhost:8081 in browser
+2. Navigate to localhost:8080 or localhost:8081 in browser (I've heard that for someone this required incognito mode in browser, but for me normal browser was sufficient.)
 
 ## Some notes on the implementation:
 Of the top of my head, this is of course lacking a lot of things, but here are some that came to mind:
@@ -56,4 +56,4 @@ Well, first of all, above listed things should be implemented. Then, it should b
 - Build pipelines and deployment configurations using something like Jenkins, codeBuild, codeDeploy etc.
 - Setting up git-rules to prevent git push -f master
 - Everything should be configured with some IAC tool, such as terraform or cloudformation
-- And numerous other things, but this is just a simple example. If you want to see and hear more, it'll cost money.
+- And numerous other things, but this is just a simple example.

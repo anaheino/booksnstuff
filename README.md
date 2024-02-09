@@ -21,6 +21,8 @@ The project is split into three services: common-backend, bookapp and userapp.
 1. Run 'mvn clean install -DskipTests && cd docker && docker-compose up' in the root directory.
 2. Navigate to localhost:8080 or localhost:8081 in browser (I've heard that for someone this required incognito mode in browser, but for me normal browser was sufficient.)
 
+Note: This is a bit older version, and thus does not use docker buildkit. To fix possible issues, set DOCKER_BUILDKIT environment variable to 0, and restart docker daemon.
+
 ## Some notes on the implementation:
 Of the top of my head, this is of course lacking a lot of things, but here are some that came to mind:
 
